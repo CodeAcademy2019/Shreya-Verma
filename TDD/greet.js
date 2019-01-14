@@ -1,10 +1,10 @@
 function greet(name) {
     if (arguments.length>1) {
-        var temp=Object.values(arguments).map((a) => a.split(", "));
+        var temp=Object.values(arguments);
         var upper=[];
         var lower=[];
         temp.forEach((a) => {
-            if (a.split().every((b) => b === b.toUpperCase())) {
+            if (a.split("").every((b) => b === b.toUpperCase())) {
                 upper.push(a);
             }
             else {
@@ -26,17 +26,15 @@ function greet(name) {
         }
         console.log(s);
         return s;
-        /*if (name.split().every((a) => a === a.toUpperCase())) {
-        {   console.log("HELLO "+name+"!");
-            return "HELLO "+name+"!"; 
-        /*console.log("Hello, "+Object.values(arguments).slice(0, -1).reduce((r, a)=>r+=(", "+a))+" and "+arguments[arguments.length-1]+".")
-        return ("Hello, "+Object.values(arguments).slice(0, -1).reduce((r, a)=>r+=(", "+a))+" and "+arguments[arguments.length-1]+".");*/
     }
     if (name===null) {
         console.log("Hello, my friend.");
         return "Hello, my friend.";
     }
-    if (name.split().every((a) => a === a.toUpperCase())) {
+    if (Array.isArray(name)) {
+        name=name[0];
+    }
+    if (name.split("").every((a) => a === a.toUpperCase())) {
         console.log("HELLO "+name+"!");
         return "HELLO "+name+"!";        
     }

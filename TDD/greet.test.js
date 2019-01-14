@@ -1,27 +1,27 @@
 const greet = require('./greet');
 describe('greet', () => {
-    test('should give Hello, <name>.', () => {
+    test('checking if output of greet() function is "Hello, <name>." for <name>', () => {
         expect(greet('Bob')).toBe('Hello, Bob.');
     });
-    test('should give Hello, my friend', () => {
+    test('checking if output of greet() function is "Hello, my friend" for null', () => {
         expect(greet(null)).toBe('Hello, my friend.');
     });
-    test('should give HELLO, <NAME>!', () => {
+    test('checking if output of greet() function is "HELLO, <NAME>!" for <NAME>', () => {
         expect(greet('JERRY')).toBe('HELLO JERRY!');
     });
-    test('should give Hello, A and B.', () => {
+    test('checking if output of greet() function is "Hello, A and B." for A and B', () => {
         expect(greet('Jill', 'Jane')).toBe('Hello, Jill and Jane.');
     });
-    test('should give Hello, A, B and C.', () => {
+    test('checking if output of greet() function is "Hello, A, B and C." for A, B and C', () => {
         expect(greet('Jill', 'Jane', 'Jack')).toBe('Hello, Jill, Jane and Jack.');
     });
-    test('should give Hello, A and C. AND HELLO B!', () => {
+    test('checking if output of greet() function is "Hello, A and C. AND HELLO B!" for capitalized A and C and uppercase B', () => {
         expect(greet("Amy", "BRIAN", "Charlotte")).toBe("Hello, Amy and Charlotte. AND HELLO BRIAN!");
     });
-    test('should give Hello, A, D and C. AND HELLO B and E!', () => {
+    test('checking if output of greet() function is "Hello, A, D and C. AND HELLO B and E!" for capitalized A, D and C and uppercase B and E', () => {
         expect(greet("Amy", "BRIAN", "Daisy", "EMILY", "Charlotte")).toBe("Hello, Amy, Daisy and Charlotte. AND HELLO BRIAN AND EMILY!");
     });
-    test('should give Hello, B, C and D!', () => {
-        expect(greet("Bob", "Charlie, Dianne")).toBe("Hello, Bob, Charlie, and Dianne.");
+    test('checking if output of greet() function is "Hello, B and C, D." for B and C, D', () => {
+        expect(greet("Bob", "Charlie, Dianne")).toBe("Hello, Bob and Charlie, Dianne.");
     });
 });
