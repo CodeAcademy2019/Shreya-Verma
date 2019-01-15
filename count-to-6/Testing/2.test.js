@@ -1,18 +1,11 @@
 const prog= require('./2-func');
-const a=`Hello, BLAIR!
-Your name lowercased is "blair".`;
-const b=`Hello, Chuck!
-Your name lowercased is "chuck".`;
-const c=`Hello, chuck!
-Your name lowercased is "chuck".`;
-describe('prog', () => {
-    test('checking for full uppercase', () => {
-        expect(prog("BLAIR")).toBe(a);
-    });
-    test('checking for capitalized word', () => {
-        expect(prog("Chuck")).toBe(b);
-    });
-    test('checking for full lowercase', () => {
-        expect(prog("chuck")).toBe(c);
-    });
-});
+arrPos=[['checking for output of prog() with full uppercase', 'BLAIR', `Hello, BLAIR!
+Your name lowercased is "blair".`],
+['checking for output of prog() with full lowercase', 'chuck', `Hello, chuck!
+Your name lowercased is "chuck".`],
+['checking for output of prog() with empty string', ' ',`Hello,  !
+Your name lowercased is " ".`]];
+arrPos.forEach((a)=> {
+    test(a[0], () => {
+    expect(prog(a[1])).toEqual(a[2]);
+})});

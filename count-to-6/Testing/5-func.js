@@ -1,7 +1,7 @@
-function prog(userArray){
-    let obj={};
-    [, obj.username, obj.email]=userArray;
+module.exports= (userArray) => {
+    [, username, email]=userArray;
+    let obj={ username: username||'',
+              email: email||''};
     console.log(obj);
     return obj;
 }
-module.exports=prog;

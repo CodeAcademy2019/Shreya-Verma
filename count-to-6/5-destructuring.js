@@ -1,4 +1,5 @@
 let userArray = process.argv.slice(2);
-let obj={};
-[, obj.username, obj.email]=userArray;
+[, username, email]=userArray;
+let obj={ username: username||'',
+        email: email||''};
 console.log(obj);

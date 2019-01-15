@@ -1,9 +1,11 @@
 const prog= require('./8-func');
-describe('prog', () => {
-    test('checking for midpoint of two positive numbers', () => {
-        expect(prog(1, 2)).toBe(1.5);
-    });
-    test('checking for midpoint with negative number', () => {
-        expect(prog(2, -3)).toBe(-0.5);
-    });
+arrPos=[['checking output of midpoint() for 2 positive numbers', [1, 2], 1.5], 
+        ['checking output of midpoint() for positive and negative numbers', [2, -3], -0.5],
+        ['checking output of midpoint() with only lowerBound', [2], 1.5],
+        ['checking output of midpoint() with only upperBound', [, 1], 0.5],
+        ['checking output of midpoint() with no arguements', [], 0.5]];
+arrPos.forEach((a)=> {
+    test(a[0], () => {
+        expect(prog(...a[1])).toEqual(a[2]);
+    })
 });

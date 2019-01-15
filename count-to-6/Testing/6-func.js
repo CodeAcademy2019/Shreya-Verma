@@ -1,6 +1,11 @@
-function prog(a) {
-    var s=`The minimum of [${a}] is ${Math.min(...a)}`;
+module.exports=(a) => {
+    var s;
+    if (a.length===0){
+        s=`The minimum of [${a}] is not defined`;
+    }
+    else {
+        s=`The minimum of [${a}] is ${Math.min(...a)}`;
+    }
     console.log(s);
     return (s);
 }
-module.exports=prog;
