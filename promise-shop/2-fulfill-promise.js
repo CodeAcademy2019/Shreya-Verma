@@ -1,6 +1,6 @@
-const a= (fulfill, reject) => {
+const promiseConstructor= (fulfill, reject) => {
     setTimeout(() => fulfill('FULFILLED!'), 300);
 };
-const promise = new Promise(a);
+const promise = new Promise(promiseConstructor);
 promise.then(console.log);
-module.exports={promise, a};
+module.exports=promise;

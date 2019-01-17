@@ -1,18 +1,9 @@
-const prog= require('./3-reject');
-jest.useFakeTimers();
+const rejectTestPromise= require('./3-reject');
 describe('promise', () => {
-    test('checking if promise is "REJECTED!"', () => {
-        expect.assertions(1);
-        return expect(prog.promise).rejects.toEqual(new Error('REJECTED!'));
+    it('should reject with Error "REJECTED!"', () => {
+        expect(rejectTestPromise).rejects.toEqual(new Error('REJECTED!'));
     });
-});
-describe('promise function', () => {
-    test('checking if a() calls setTimeout in min 300 ms', () => {
-        prog.a();
-        expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 300);
-    });
-    test('checking if a() does not call setTimeout in min 350 ms', () => {
-        prog.a();
-        expect(setTimeout).not.toHaveBeenLastCalledWith(expect.any(Function), 350);
+    it('should not reject with anything other than Error "REJECTED!"', () => {
+        expect(rejectTestPromise).rejects.not.toEqual('REJECTED!');
     });
 });

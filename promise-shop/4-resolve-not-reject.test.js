@@ -1,11 +1,9 @@
-const prog= require('./4-resolve-not-reject');
+const promise= require('./4-resolve-not-reject');
 describe('promise', () => {
-    test('checking if promise gets rejected and gives "I DID NOT FIRE"', () => {
-        expect.assertions(1);
-        return expect(prog.promise).rejects.toEqual(new Error('I DID NOT FIRE'));
+    it('should get resolved with "I FIRED"', () => {
+        return expect(promise).resolves.toEqual('I FIRED');
     });
-    test('checking if promise gets fulfilled and gives "I FIRED"', () => {
-        expect.assertions(1);
-        return expect(prog.promise).resolves.toEqual('I FIRED');
+    it('should get not get resolved with anything other than "I FIRED"', () => {
+        return expect(promise).resolves.not.toEqual('ABC');
     });
 });

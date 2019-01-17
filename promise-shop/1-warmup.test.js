@@ -1,18 +1,18 @@
-const prog= require('./1-warm-up');
+const tryingSetTimeout= require('./1-warm-up');
 jest.useFakeTimers();
-describe('a()', ()=> {
-    test('checking if a() calls setTimeout in min 300 ms', () => {
-        prog.a();
+describe('timeoutTest())', ()=> {
+    it('should call setTimeout in min 300 ms', () => {
+        tryingSetTimeout.timeoutTest();
         expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 300);
     });
-    test('checking if a() does not call setTimeout in min 350 ms', () => {
-        prog.a();
+    it('should not call setTimeout in min 350 ms', () => {
+        tryingSetTimeout.timeoutTest();
         expect(setTimeout).not.toHaveBeenLastCalledWith(expect.any(Function), 350);
     });
 });
 
-describe('c()', ()=> {
-    test('checking if c() prints "TIMED OUT!"', () => {
-        expect(prog.c()).toEqual('TIMED OUT!');
+describe('executeOnTimeout()', ()=> {
+    it('should print "TIMED OUT!"', () => {
+        expect(tryingSetTimeout.executeOnTimeout()).toEqual('TIMED OUT!');
     });
 });

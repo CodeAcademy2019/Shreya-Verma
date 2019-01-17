@@ -1,11 +1,16 @@
-var a, promise;
-const b= () => {
-    a= (fulfill, reject) => {
+var promiseConstructor, promise;
+var storeOutput=[]
+var promiseExecute= (val) => {
+    console.log(val);
+    storeOutput.push(val);
+}
+const mainFunc= () => {
+    promiseConstructor= (fulfill, reject) => {
         fulfill('PROMISE VALUE');
     };
-    promise = new Promise(a);
-    promise.then(console.log);
-    console.log('MAIN PROGRAM');
+    promise = new Promise(promiseConstructor);
+    promise.then(promiseExecute);
+    promiseExecute('MAIN PROGRAM');
 }
-b()
-module.exports={promise, a, b};
+mainFunc()
+module.exports={promise, storeOutput};

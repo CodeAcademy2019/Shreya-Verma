@@ -1,10 +1,10 @@
-const b='TIMED OUT!'
-const c=()=>{ 
-    console.log(b); 
-    return b;
+const timeoutPrint='TIMED OUT!'
+const executeOnTimeout=()=>{ 
+    console.log(timeoutPrint); 
+    return timeoutPrint;
 }
-const a=()=> { 
-    setTimeout(c, 300);
+const timeoutTest=()=> { 
+    setTimeout(executeOnTimeout, 300);
 }
-a();
-module.exports={a, c};
+timeoutTest();
+module.exports={timeoutTest, executeOnTimeout};
