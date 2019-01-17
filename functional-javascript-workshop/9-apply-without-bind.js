@@ -1,9 +1,9 @@
-var slice = Array.prototype.slice
 
 function logger(namespace) {
-  return function abc(){
-    console.log.apply(null, [namespace].concat(Object.values(arguments)))
+  return function abc(...args){
+    console.log.apply(this, [namespace].concat(args))
+    //console.log.call(this, namespace,...args);
+
   };
 }
-
 module.exports = logger
