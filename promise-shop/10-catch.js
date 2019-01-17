@@ -17,4 +17,7 @@ const promise= Promise.resolve(iterate(1))
                     .then(iterate)
                     .then(iterate)
                     .catch((e)=>console.log(e.message));
-module.exports=promise;
+const b=()=> { 
+    return promise;
+}
+module.exports={b, alwaysThrows, iterate, promise}
