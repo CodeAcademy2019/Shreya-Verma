@@ -1,13 +1,16 @@
-const prog= require('./6-shortcuts');
+const shortcuts= require('./6-shortcuts');
 describe('promiseResolved', () => {
-    test('checking if promiseResolved gets fulfilled and gives "FULFILLED"', () => {
-        expect.assertions(1);
-        return expect(prog.promiseResolved).resolves.toEqual('FULFILLED');
+    it('should get resolved with "FULFILLED"', () => {
+        return expect(shortcuts.promiseResolved).resolves.toEqual('FULFILLED');
     });
-});
+});    
 describe('promiseRejected', () => {
-    test('checking if promiseRejected gets rejected and gives "REJECTED!"', () => {
-        expect.assertions(1);
-        return expect(prog.promiseRejected).rejects.toEqual('REJECTED!');
+    it('should get rejected with "REJECTED!"', () => {
+        return expect(shortcuts.promiseRejected).rejects.toEqual('REJECTED!');
+    });
+    it ('should get caught', () => {
+        return shortcuts.promiseRejected.catch(errorMessage => {
+            return expect(errorMessage).toEqual('REJECTED!')
+        });
     });
 });

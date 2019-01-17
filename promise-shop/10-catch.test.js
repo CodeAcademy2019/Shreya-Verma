@@ -1,19 +1,23 @@
-const prog= require('./10-catch');
+const catchTest= require('./10-catch');
 describe('catch', ()=> {
-    test('checking if promise gets caught', () => {
-        return prog.b().catch(e => {
-            return expect(e).toEqual('OH NOES')
+    it('should be able to catch error', () => {
+        return catchTest.promise.catch(errorPromise => {
+            return expect(errorPromise).toEqual('OH NOES')
         });
     });    
 });
-
-describe('alwaysThrow', ()=> {
-    test('checking if alwaysThrows() throws error', () => {
-        return expect(prog.alwaysThrows).toThrowError('OH NOES');
+describe('storeOutput array', ()=> {
+    it('should give output in order of print to console', () => {
+            return expect(catchTest.storeOutput).toEqual([1, 2, 3, 4, 5, 'OH NOES']);
+    });    
+});
+describe('alwaysThrow()', ()=> {
+    it('should throw error', () => {
+        return expect(catchTest.alwaysThrows).toThrowError('OH NOES');
     });
 });
-describe('iterate', ()=> {
-    test('checking if iterate() is working', () => {
-            return expect(prog.iterate(1)).toEqual(2);
+describe('iterate()', ()=> {
+    it('should increment passed number', () => {
+            return expect(catchTest.iterate(1)).toEqual(2);
     });    
 });

@@ -1,11 +1,9 @@
-const prog= require('./9-throw-error');
+const throwError= require('./9-throw-error');
 describe('promise', () => {
-    test('checking if promise gets resolved and gives JSON', () => {
-       expect.assertions(1);;
-        return expect(prog('{"Name":"Shreya","Age":21}')).resolves.toEqual({"Name":"Shreya","Age":21});
+    it('should get resolved and gives JSON', () => {
+        return expect(throwError('{"Name":"Shreya","Age":21}')).resolves.toEqual({"Name":"Shreya","Age":21});
     });
-    test('checking if promise gets rejected and gives error message', () => {
-        expect.assertions(1);
-        return expect(prog({"Name":"Shreya"})).rejects.toEqual('Unexpected token o in JSON at position 1');
+    it('should get rejected and give error message', () => {
+        return expect(throwError({"Name":"Shreya"})).rejects.toEqual('Unexpected token o in JSON at position 1');
     });
 });

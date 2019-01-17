@@ -2,16 +2,16 @@ const parsePromised= (jsonObj) => {
     return new Promise((resolve, reject) => {
         try {
             resolve(JSON.parse(jsonObj));
-        } catch(e) {
-            reject(e.message)
+        } catch(promiseError) {
+            reject(promiseError.message)
         }
     });
 }
 var promise;
-const b= (a) => { 
-    promise=parsePromised(a);
+const mainFunc= (jsonObject) => { 
+    promise=parsePromised(jsonObject);
     promise.then(console.log, console.log);
     return promise;
 }
-//b(process.argv[2]);
-module.exports=b;
+mainFunc(process.argv[2]);
+module.exports=mainFunc;
