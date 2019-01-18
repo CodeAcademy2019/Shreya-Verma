@@ -6,7 +6,10 @@ const mainFunc= (link) => {
                         console.log(jsonObj);
                         return jsonObj;
                     })
-                    .catch(promiseError=>console.log(promiseError.message));
+                    .catch((promiseError)=>{
+                        console.log(promiseError.message);
+                        return promiseError.message;
+                    });
 }
 const promise= mainFunc('http://localhost:1337')
 module.exports=mainFunc;

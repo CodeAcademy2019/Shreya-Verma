@@ -8,9 +8,4 @@ describe('promiseRejected', () => {
     it('should get rejected with "REJECTED!"', () => {
         return expect(shortcuts.promiseRejected).rejects.toEqual('REJECTED!');
     });
-    it ('should get caught', () => {
-        return shortcuts.promiseRejected.catch(errorMessage => {
-            return expect(errorMessage).toEqual('REJECTED!')
-        });
-    });
 });

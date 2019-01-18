@@ -19,8 +19,9 @@ const promise= Promise.resolve(iterate(1))
                     .then(iterate)
                     .then(iterate)
                     .catch((promiseError)=> {
-                        storeOutput.push('OH NOES');
-                        console.log(promiseError.message)
+                        storeOutput.push(promiseError.message);
+                        console.log(promiseError.message);
+                        return promiseError.message;
                     });
 
 module.exports={alwaysThrows, iterate, promise, storeOutput}
