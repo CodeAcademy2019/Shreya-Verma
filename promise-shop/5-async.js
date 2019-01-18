@@ -1,16 +1,15 @@
-var promiseConstructor, promise;
+// let promiseConstructor, promise;
 var storeOutput=[]
 var promiseExecute= (val) => {
-    console.log(val);
-    storeOutput.push(val);
+    storeOutput.push(val)
 }
+const promiseConstructor= (fulfill, reject) => {
+    fulfill('PROMISE VALUE');
+};
 const mainFunc= () => {
-    promiseConstructor= (fulfill, reject) => {
-        fulfill('PROMISE VALUE');
-    };
-    promise = new Promise(promiseConstructor);
-    promise.then(promiseExecute);
+    const promise = new Promise(promiseConstructor);
+    const finalPromise = promise.then(promiseExecute).then(() => storeOutput);
     promiseExecute('MAIN PROGRAM');
+    return finalPromise;
 }
-mainFunc()
-module.exports={promise, storeOutput};
+module.exports=mainFunc;
