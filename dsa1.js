@@ -61,9 +61,7 @@ const mainFunc= (str)=> {
         });
         //console.log('Result Pos:',resultPos,'Result Zero:', resultZero);
         //console.log(maxProfit);
-        if (resultPos.length==0) {
-            return [0, 0];
-        }
+        // 
         final=resultPos[0];
         //console.log(resultPos, final)
         if (resultPos.length>1) {
@@ -89,9 +87,16 @@ const mainFunc= (str)=> {
         res=Array.from(unique);
         res.sort((a, b) => a - b);
         //console.log([maxProfit, res.slice(0,10)]);
-        retVal+=((k+1).toString()+'\n'+maxProfit.toString()+'\n'+(res.slice(0,10)).join(' ')+'\n');
+        if (resultPos.length==0) {
+            boxes=0;
+        }
+        else{
+            boxes=(res.slice(0,10)).join(' ');
+        }
+        retVal+=((k+1).toString()+'\n'+maxProfit.toString()+'\n'+boxes+'\n');
         ++k;
     });
+    console.log(retVal);
     return retVal;
 }
 module.exports=mainFunc;
