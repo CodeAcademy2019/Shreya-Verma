@@ -1,5 +1,6 @@
-// var getPromise1= () => new Promise((resolve, reject) => resolve('hey'));
-// var getPromise2= () => new Promise((resolve, reject) => resolve('delilah'));
+//TESTING
+/*var getPromise1= () => new Promise((resolve, reject) => resolve('hey'));
+var getPromise2= () => new Promise((resolve, reject) => resolve('delilah'));*/
 const all= (promise1, promise2)=> {
     var counter=0;
     var resolved=false;
@@ -25,5 +26,8 @@ const all= (promise1, promise2)=> {
     });
 }
 const promise= all(getPromise1(), getPromise2())
-                .then(console.log);
-module.exports=promise
+                .then((val) => { 
+                    console.log(val);
+                    return val;
+                });
+module.exports=promise;

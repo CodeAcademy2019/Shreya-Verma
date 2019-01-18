@@ -1,7 +1,9 @@
-const prog= require('./11-multi-promises');
+const promise= require('./11-multi-promises');
 describe('promise', () => {
-    test('checking if promise gets resolved', () => {
-        expect.assertions(1);
-        return expect(prog).resolves.toEqual(['hey', 'delilah']);
+    it('should resolve with arguments from both promises', () => {
+        return expect(promise).resolves.toEqual(['hey', 'delilah']);
+    });
+    it('should not resolve with anything other than arguments from both promises', () => {
+        return expect(promise).resolves.not.toEqual(['abc', 'delilah']);
     });
 });
