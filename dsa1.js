@@ -76,7 +76,7 @@ const mainFunc= (str)=> {
             })
         }   
         resultZero.forEach((val)=>{
-            temp=final;
+            temp=final.slice();
             val.forEach((val2)=> {
                 temp.forEach((val3)=> {
                     final.push(val2+val3);
