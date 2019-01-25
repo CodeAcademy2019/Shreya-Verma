@@ -1,21 +1,20 @@
-const getFile= require('./11-file-server.js');
+const getClient = require('./7-http-client');
+
 describe('getFile()', () => {
-    it ('should receive info from http URL', (done) => {
-        function callbackF(data){
-            console.log(data);
-            expect(data).toEqual('A\nB\nC');
-        }
-        process.argv = ['node', '11-file-server.js',7000,'io-test1.txt'];
-        getFile(callbackF);
-        done();
-    });    
-    it ('should receive not receive anything other than info from http URL', (done) => {
-        function callbackF(data){
-            expect(data).not.toEqual('a\nb\nc');
-    
-        }
-        process.argv = ['node', '11-file-server.js',7000,'io-test1.txt'];
-        getFile(callbackF);
-        done();
-    });    
+  it('should send file contents at http URL', (done) => {
+    function callbackF(data) {
+      expect(data).toEqual('A\nB\nC');
+      done();
+    }
+    process.argv = ['node', '7-http-client.js', 'http://localhost:7000'];
+    getClient(callbackF);
+  });
+  it('should not send anything other than file contents at http URL', (done) => {
+    function callbackF(data) {
+      expect(data).not.toEqual('a\nb\nc');
+      done();
+    }
+    process.argv = ['node', '7-http-client.js', 'http://localhost:7000'];
+    getClient(callbackF);
+  });
 });
