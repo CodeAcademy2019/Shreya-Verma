@@ -13,4 +13,5 @@ const server = http.createServer(((request, response) => {
     response.write('Bye\n');
     response.write('bye');
   }
+  response.end();
 })).listen(7000);

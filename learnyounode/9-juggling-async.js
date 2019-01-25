@@ -1,6 +1,6 @@
 const http = require('http');
 
-const juggleAsync = () => {
+const juggleAsync = (callback) => {
   const urlArr = process.argv.slice(2);
   const contentArr = [];
   urlArr.forEach(() => {
@@ -19,11 +19,11 @@ const juggleAsync = () => {
           contentArr.forEach((val) => {
             console.log(val);
           });
+          callback(contentArr);
         }
       });
     });
   });
-  return contentArr;
 };
 //juggleAsync();
 module.exports = juggleAsync;
