@@ -1,9 +1,10 @@
 const http = require('http');
 const url = require('url');
+
 const parsetime = (urlObj) => {
-  const date = new Date (urlObj.query.iso);
-  const dateObj = { 'hour' : date.getHours(),
-                    'minute' : date.getMinutes(),
+  const date = new Date(urlObj.query.iso);
+  const dateObj = { 'hour': date.getHours(),
+                    'minute': date.getMinutes(),
                     'second' : date.getSeconds()
                   } 
   return JSON.stringify(dateObj);
