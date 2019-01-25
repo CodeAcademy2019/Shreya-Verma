@@ -1,6 +1,6 @@
-// let promiseConstructor, promise;
-var storeOutput=[]
-var promiseExecute= (val) => {
+
+const storeOutput=[]
+const promiseExecute= (val) => {
     storeOutput.push(val)
 }
 const promiseConstructor= (fulfill, reject) => {
@@ -12,4 +12,12 @@ const mainFunc= () => {
     promiseExecute('MAIN PROGRAM');
     return finalPromise;
 }
+
+// const returnPromise = mainFunc();
+// returnPromise.then((val) => {
+//     console.log(val);
+// });
+
+
+
 module.exports=mainFunc;

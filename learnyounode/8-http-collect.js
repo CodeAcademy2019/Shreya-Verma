@@ -1,23 +1,25 @@
 const http = require('http');
+
+// eslint-disable-next-line no-unused-vars
 const callback = (res) => {
-    console.log(res.length);
-    console.log(res);
-}
-const httpCollect= (callback) => {
-    http.get(process.argv[2], (request) => {
-        var result = '';
-        request.setEncoding('utf8');
-        request.on('data', data => {
-            result += data;
-        });
-        request.on('end', () => {
-            callback(result);
-        });    
-    });
+  console.log(res.length);
+  console.log(res);
 };
-//httpCollect(callback);
-module.exports = httpCollect; 
-//WITH bl
+const httpCollect = (callbackF) => {
+  http.get(process.argv[2], (response) => {
+    let result = '';
+    response.setEncoding('utf8');
+    response.on('data', (data) => {
+      result += data;
+    });
+    response.on('end', () => {
+      callbackF(result);
+    });
+  });
+};
+httpCollect(callback);
+module.exports = httpCollect;
+// WITH bl
 // const http = require('http');
 // const bl = require('bl')
 // const httpCollect= () => {

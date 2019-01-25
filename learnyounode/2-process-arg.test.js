@@ -12,7 +12,4 @@ describe('printSum()', () => {
         process.argv = ['node', '2-process-arg.js'];
         return expect(printSum()).toEqual(0);
     });
-    // it ('should not print anything other than "HELLO WORLD" to console', () => {
-    //     return expect(print()).not.toEqual('hello world');
-    // });
 });

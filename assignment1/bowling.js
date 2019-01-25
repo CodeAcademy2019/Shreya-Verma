@@ -13,7 +13,7 @@ const roll = (pins, index, arr, frameIndex) => {
 
 const score = scoreArr => scoreArr.reduce((result, val) => result + val, 0);
 
-const bowling = (...rolls) => {
+const bowling = (rolls) => {
   const storeScore = [];
   let temp = [];
   let fIndex = 0;
@@ -36,4 +36,5 @@ const bowling = (...rolls) => {
   });
   return score(storeScore);
 };
-module.exports = { bowling, roll, score };
+//module.exports = { bowling, roll, score };
+module.exports = bowling;

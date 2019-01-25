@@ -1,1 +1,7 @@
-./linting/node_modules
+linting/node_modules/
+assignment1/node_modules/
+assignment1/package-lock.json
+assignment1/package.json
+learnyounode/package-lock.json
+learnyounode/package.json
+learnyounode/node_modules

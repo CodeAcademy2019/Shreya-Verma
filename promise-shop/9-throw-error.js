@@ -3,7 +3,7 @@ const parsePromised= (jsonObj) => {
         try {
             resolve(JSON.parse(jsonObj));
         } catch(promiseError) {
-            reject(promiseError.message)
+            reject('Unable ')
         }
     });
 }

@@ -6,5 +6,5 @@ const printNewline = () => {
     console.log(result);
     return result;
 }
-//printNewline();
+printNewline();
 module.exports=printNewline;

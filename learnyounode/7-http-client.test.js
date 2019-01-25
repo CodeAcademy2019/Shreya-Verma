@@ -5,7 +5,7 @@ describe('getClient()', () => {
             expect(data).toEqual('Hello World\n');
             done();
         }
-        process.argv = ['node', '7-http-client.js','http://localhost:7000'];
+        process.argv = ['node', '7-http-client.js', 'http://localhost:7000'];
         getClient(callbackF);
     });    
     it ('should not receive anything other than info from http URL', (done) => {
@@ -13,7 +13,7 @@ describe('getClient()', () => {
             expect(data).not.toEqual('hello world\n');
             done();
         }
-        process.argv = ['node', '7-http-client.js','http://localhost:7000'];
+        process.argv = ['node', '7-http-client.js', 'http://localhost:7000'];
         getClient(callbackF);
     });    
 });
